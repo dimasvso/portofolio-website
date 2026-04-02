@@ -27,7 +27,7 @@ export default function HomePage() {
           <h2 className="text-2xl font-semibold text-gray-800">About Me</h2>
           <p className="mt-6 text-gray-600">
             About Me I am a Web Developer with around 8 months of experience
-            focusing on Frontend Development, and I am currently expanding my
+            focusing on Frontend Development, and I am currently expanding my     
             skills as a Fullstack Developer (now in my second month). <br />
             I have experience building responsive and modern user interfaces using
             React, and I am currently developing backend systems using Django and
