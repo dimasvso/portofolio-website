@@ -1,66 +1,98 @@
 import { Link } from "react-router-dom";
-import CtaContact from "./CtaContact";
+import { Link2, User, Mail } from "lucide-react";
 
 export default function Footer() {
+  const year = new Date().getFullYear();
+
   return (
-    <footer className="bg-white border-t border-gray-200 mt-16">
-      <div className="max-w-7xl mx-auto px-4 py-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer className="border-t border-[var(--border)] mt-24">
+      <div className="max-w-7xl mx-auto px-6 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {/* Brand */}
           <div>
-            <h1 className="text-lg font-semibold text-gray-800">
-              Dimas Portofolio Web
-            </h1>
-            <p className="mt-2 text-sm text-gray-600">
-              Thank you for visiting my portfolio. I’m a Fullstack Developer
-              focused on building responsive and user-friendly web applications.
-              Feel free to reach out via email or social media if you’d like to
-              collaborate or have any questions.
+            <div className="flex items-center gap-1 mb-3">
+              <span className="font-mono text-xs text-[var(--muted)]">&lt;</span>
+              <span className="font-display font-semibold text-[var(--off-white)]">dimas</span>
+              <span className="font-mono text-xs text-[var(--muted)]">/&gt;</span>
+            </div>
+            <p className="text-sm text-[var(--muted)] leading-relaxed max-w-xs">
+              Fullstack Developer & ML Engineer based in Bogor, Indonesia.
+              Building clean, performant, and thoughtful digital experiences.
             </p>
           </div>
 
+          {/* Nav */}
           <div>
-            <h2 className="text-sm font-semibold text-gray-800 mb-3">
+            <p className="font-mono text-xs tracking-widest uppercase text-[var(--muted)] mb-4">
               Navigation
-            </h2>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link
-                  to="/"
-                  className="text-gray-600 hover:text-blue-500 transition"
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/products"
-                  className="text-gray-600 hover:text-blue-500 transition"
-                >
-                  Portofolio
-                </Link>
-              </li>
-              <li>
-               <CtaContact />
-              </li>
+            </p>
+            <ul className="space-y-2">
+              {[
+                { label: "Home", to: "/" },
+                { label: "Portfolio", to: "/portofolio" },
+              ].map((l) => (
+                <li key={l.label}>
+                  <Link
+                    to={l.to}
+                    className="text-sm text-[var(--muted)] hover:text-[var(--off-white)] transition-colors"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
+          {/* Contact */}
           <div>
-            <h2 className="text-sm font-semibold text-gray-800 mb-3">
+            <p className="font-mono text-xs tracking-widest uppercase text-[var(--muted)] mb-4">
               Contact
-            </h2>
-            <ul className="space-y-2 text-sm text-gray-600">
-              <li>Email: susilodim@gmail.com</li>
-              <li>Phone: +62 819-5917-6199</li>
-              <li>Location: Bogor,Indonesia</li>
+            </p>
+            <ul className="space-y-3">
+              <li>
+                <a
+                  href="mailto:susilodim@gmail.com"
+                  className="flex items-center gap-2 text-sm text-[var(--muted)] hover:text-[var(--off-white)] transition-colors"
+                >
+                  <Mail size={14} />
+                  susilodim@gmail.com
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/dimas-susilo/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2 text-sm text-[var(--muted)] hover:text-[var(--off-white)] transition-colors"
+                >
+                  <Link2 size={14} />
+                  linkedin.com/in/dimas-susilo
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2 text-sm text-[var(--muted)] hover:text-[var(--off-white)] transition-colors"
+                >
+                  <User size={14} />
+                  github.com/dimas
+                </a>
+              </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-gray-200 my-6"></div>
+        <hr className="hr-glow my-8" />
 
-        <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-          <p>© {new Date().getFullYear()} Muhammad Dimas Susilo. All rights reserved.</p>
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="font-mono text-xs text-[var(--muted)]">
+            © {year} Muhammad Dimas Susilo. All rights reserved.
+          </p>
+          <p className="font-mono text-xs text-[var(--muted)]">
+            Built with React + Vite + Tailwind
+          </p>
         </div>
       </div>
     </footer>
