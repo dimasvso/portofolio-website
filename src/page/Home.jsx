@@ -190,7 +190,7 @@ export default function HomePage() {
                   View Work <ArrowRight size={16} />
                 </Link>
                 <a
-                  href="mailto:susilodim@gmail.com"
+                  href="https://www.linkedin.com/in/dimas-susilo"
                   className="flex items-center gap-2 px-6 py-3 border border-[var(--border-glow)] text-[var(--off-white)] font-display font-semibold text-sm rounded-sm hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all duration-200"
                 >
                   Get in Touch

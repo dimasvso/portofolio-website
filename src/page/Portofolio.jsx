@@ -3,6 +3,8 @@ import { ExternalLink, Code2, Tag } from "lucide-react";
 import ConnectCoffee from "../assets/ConnectCoffee.png";
 import TokoBunga from "../assets/Bungaku.png";
 import ConnectCompro from "../assets/ConnectCompro.png";
+import GameDeals from "../assets/GameDeals.png";
+import SafetyCheck from "../assets/YoloSavetyCheck.png";
 import Certificate1 from "../assets/Dicoding-Frond End.png";
 import Certificate2 from "../assets/Dicoding-JS.png";
 import Certificate3 from "../assets/DicodingPython.png";
@@ -10,6 +12,9 @@ import Certificate4 from "../assets/DQLAB-DPB-Python.png";
 import Certificate5 from "../assets/K3.png";
 import Certificate6 from "../assets/ML-KMeans.png";
 import Certificate7 from "../assets/MySkillFrontendjs.png";
+import Certificate8 from "../assets/BMAW-React.png";
+import Certificate9 from "../assets/BMLP.png";
+import Certificate10 from "../assets/Dicoding-BE-Pemula-JS.png";
 
 const PROJECTS = [
   {
@@ -54,6 +59,35 @@ const variants = {
   }
 };`,
   },
+  {
+    title: "Game Deals",
+    desc: "Modern, responsive Game Deals Apps website with easy Navigations and Game List",
+    image: GameDeals,
+    tags: ["React", "Tailwind CSS"],
+    type: "Frontend",
+    snippet: `
+    // RemoveFromWishlist
+  function removeFromWishlist(gameID) {
+    const updated = wishlist.filter((item) => item.gameID !== gameID);
+    localStorage.setItem("wishlist", JSON.stringify(updated));
+    setWishlist(updated);
+  }`,
+  },
+  {
+    title: "Computer Vision Safety Check",
+    desc: "Modern, responsive company profile website with animated sections, team showcase, and contact form.",
+    image: SafetyCheck,
+    tags: ["Ultralytics", "Python"],
+    type: "Computer Vision",
+    snippet: ` 
+    // Count Violations
+    violation_count = 0
+    for box in results[0].boxes:
+        class_id = int(box.cls[0])
+        if model.names[class_id] in ['no-helmet', 'no-vest']:
+            violation_count += 1
+`,
+  },
 ];
 
 const CERTS = [
@@ -91,13 +125,31 @@ const CERTS = [
     image: Certificate6,
     title: "Machine Learning — K-Means",
     issuer: "Independent",
-    tags: ["ML", "Data Science"],
+    tags: ["ML", "Data Science", "Python"],
   },
   {
     image: Certificate7,
     title: "Frontend JavaScript",
     issuer: "MySkill",
     tags: ["Frontend", "JavaScript"],
+  },
+  {
+    image: Certificate8,
+    title: "Frontend Web Dev Beginner",
+    issuer: "Dicoding",
+    tags: ["Frontend", "JavaScript"],
+  },
+  {
+    image: Certificate9,
+    title: "Belajar Machine Learning Pemula",
+    issuer: "Dicoding",
+    tags: ["ML", "Data Science", "Python"],
+  },
+  {
+    image: Certificate10,
+    title: "Backend Java Scripts",
+    issuer: "Dicoding",
+    tags: ["Backend", "JavaScript"],
   },
 ];
 
@@ -118,13 +170,15 @@ function ProjectCard({ project }) {
         <img
           src={project.image}
           alt={project.title}
-          className={`w-full h-full object-cover transition-all duration-500 ${hovered ? "scale-105 brightness-30" : "scale-100 brightness-100"
-            }`}
+          className={`w-full h-full object-cover transition-all duration-500 ${
+            hovered ? "scale-105 brightness-30" : "scale-100 brightness-100"
+          }`}
         />
         {/* Code snippet overlay */}
         <div
-          className={`absolute inset-0 p-4 flex items-center justify-center transition-opacity duration-300 ${hovered ? "opacity-100" : "opacity-0"
-            }`}
+          className={`absolute inset-0 p-4 flex items-center justify-center transition-opacity duration-300 ${
+            hovered ? "opacity-100" : "opacity-0"
+          }`}
         >
           <pre className="font-mono text-xs text-[var(--accent)] leading-relaxed text-left whitespace-pre-wrap">
             {project.snippet}
@@ -175,7 +229,9 @@ function CertCard({ cert }) {
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--carbon)] via-transparent to-transparent opacity-80" />
       </div>
       <div className="p-4">
-        <p className="font-mono text-xs text-[var(--muted)] mb-1">{cert.issuer}</p>
+        <p className="font-mono text-xs text-[var(--muted)] mb-1">
+          {cert.issuer}
+        </p>
         <h4 className="font-display text-sm font-semibold text-[var(--off-white)] mb-3 leading-snug">
           {cert.title}
         </h4>
@@ -245,10 +301,11 @@ export default function Portfolio() {
               <button
                 key={t}
                 onClick={() => setActiveTag(t)}
-                className={`font-mono text-xs tracking-widest uppercase px-4 py-2 rounded-sm border transition-all duration-200 ${activeTag === t
+                className={`font-mono text-xs tracking-widest uppercase px-4 py-2 rounded-sm border transition-all duration-200 ${
+                  activeTag === t
                     ? "border-[var(--off-white)] text-[var(--off-white)] bg-[var(--surface-2)]"
                     : "border-[var(--border-glow)] text-[var(--muted)] hover:border-[var(--accent)] hover:text-[var(--accent)]"
-                  }`}
+                }`}
               >
                 {t}
               </button>
