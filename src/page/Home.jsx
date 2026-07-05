@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Terminal, Cpu, Globe, Database, Code2, GitBranch, Layers, Zap, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import ProfilePhoto from "../assets/dimasAI.jpeg";
+import ProfilePhoto from "../assets/Dimas.jpeg";
 
 /* ── Tech Stack data ── */
 const STACK = [
